@@ -26,9 +26,6 @@ RUN groupadd $C_GROUP_NAME \
 
 USER $C_USER_NAME
 WORKDIR $C_HOME_DIR
-RUN mkdir -p $C_HOME_DIR/.config $C_HOME_DIR/.local/share/nvim \
-    && python3 -m venv $C_HOME_DIR/.local/share/nvim/venv \
-    && $C_HOME_DIR/.local/share/nvim/venv/bin/pip3 install pynvim msgpack
 
 COPY --chown=$C_USER_NAME:$C_GROUP_NAME ./src/config/nvim $C_HOME_DIR/.config/nvim
 
